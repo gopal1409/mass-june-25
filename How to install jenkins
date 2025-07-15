@@ -12,3 +12,7 @@ apt-get update
     8  systemctl status jenkins
 ##we need to copy the public ip :8080
 #this will show the installation page of jenkins
+##to unlcok jenkins or to get the intial admin password
+cat /var/lib/jenkins/secrets/initialAdminPassword
+#####
+
