@@ -1,0 +1,10 @@
+pipeline {
+    agent any 
+    stages {
+        stage('code from scm') {
+            steps {
+                git credentialsId: 'gitkey', url: 'git@github.com:gopal1409/mass-june-test-25.git'
+            }
+        }
+    }
+}
