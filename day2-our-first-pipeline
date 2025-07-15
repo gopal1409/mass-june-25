@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('code scm') {
+            steps {
+                echo "hello"
+            }
+        }
+        stage('build the code') {
+            steps {
+                echo "building my code"
+            }
+        }
+    }
+}
