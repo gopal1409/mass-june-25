@@ -1,6 +1,7 @@
 #lets become an root user first 
 sudo -i
 ##lets install java
+apt-get update
 3  apt install default-jdk
 #once we add the java next we will add the jenkins sign key 
     4  sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc   https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
