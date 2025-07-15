@@ -10,3 +10,5 @@ apt-get update
 #finally install jenkins
     7  sudo apt-get install jenkins
     8  systemctl status jenkins
+##we need to copy the public ip :8080
+#this will show the installation page of jenkins
