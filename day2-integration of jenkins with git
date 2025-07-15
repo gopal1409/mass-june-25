@@ -11,3 +11,8 @@
    23  git status
    24  git log
      ##the final command will show the git commit status
+#lets generate the public pvt key using ssh 
+ssh-keygen -t rsa
+###just press enter enter and enter you will get the key 
+ cat /root/.ssh/id_rsa.pub
+###once you get the key you need to store it inside your personal github account
