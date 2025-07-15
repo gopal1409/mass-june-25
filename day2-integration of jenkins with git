@@ -1,0 +1,13 @@
+##lets install maven 
+  ##lets clone an spring app 
+   14  git clone https://github.com/gopal1409/spring-hello.git
+   15  cd spring-hello/
+17  rm -rf .git
+   18  git config --global user.name "gopal"
+   19  git config --global user.email "gopal1409@gmail.com"
+   20  git init
+   21  git add .
+   22  git commit -m "my spring project"
+   23  git status
+   24  git log
+     ##the final command will show the git commit status
