@@ -28,5 +28,17 @@ pipeline {
   -Dsonar.token=sqp_00944972378042c5b34bbf5b2e56f77ee0f61811"
             }
         }
+stage('nexus') {
+            steps {
+                script {
+                    pom = readMavenPom file: "pom.xml";
+
+                filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
+                    echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
+                    artifactPath = filesByGlob[0].path;
+                nexusArtifactUploader artifacts: [[artifactId: pom.artifactId, classifier: '', file: artifactPath, type: pom.packaging]], credentialsId: 'nexus-cred', groupId: pom.artifactId, nexusUrl: 'deepart.centralus.cloudapp.azure.com:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: pom.version
+                }
+            }
+ }
     }
 }
