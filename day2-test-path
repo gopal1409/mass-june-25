@@ -1,0 +1,23 @@
+###by default when you install jenkins inside your jenkins server it create a path where all your files and folder are being stored 
+  cd /var/lib/jenkins/workspace/
+  #once you are inside this path 
+  ls
+  ##you will see your project folder 
+  cd my-first-pipeline
+  #inside this directory 
+  ls 
+  ####go to the target directoryu
+  cd target
+  ###you will have sure-firereports 
+  cd surefire-reports
+  ##if you do 
+  ls
+  ###you will see all your xml file
+  ####
+  #go to the jenkins job click on configure
+  #go to pipeline syntax generator
+  ##check for junit 
+  ###put the path of your surefire reports 
+target/surefire-reports/*.xml
+##generate it 
+##then add below mvn test
