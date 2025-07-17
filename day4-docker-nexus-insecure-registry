@@ -1,0 +1,11 @@
+ 91  cd /etc/docker/
+   92  ls
+   93  daemon.json
+   94  nano daemon.json
+   ##inside the file add this 
+    {
+      "insecure-registries": ["deepart.centralus.cloudapp.azure.com:8085"]
+    }
+###save the file using press crt x press y and enter 
+   95  systemctl restart docker
+   96  docker info
