@@ -19,5 +19,16 @@ pipeline {
                 }
             }
         }
+        stage('push image to nexus') {
+            steps {
+                script {
+                    docker.withRegistry("http://deepart.centralus.cloudapp.azure.com:8085",registryCredential) {
+                    
+                        dockerImage.push()
+                    
+                    }
+                }
+            }
+        }
     }
 }
