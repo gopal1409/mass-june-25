@@ -1,0 +1,23 @@
+pipeline {
+    environment {
+      //change the name of the app from gopalapp to your name
+        registry  = "deepart.centralus.cloudapp.azure.com/gopalapp"
+        registryCredential = 'nexus-cred'
+    }
+    agent any 
+    stages {
+        stage('code from scm') {
+            steps {
+              //change the url to your own url of git hub
+                 git credentialsId: 'gitkey', url: 'git@github.com:gopal1409/mass-june-test-25.git'
+            }
+        }
+        stage('build image') {
+            steps {
+                script {
+                    dockerImage=docker.build registry + "$BUILD_NUMBER"
+                }
+            }
+        }
+    }
+}
