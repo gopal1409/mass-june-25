@@ -1,0 +1,27 @@
+#lets install docker
+  sudo -i
+  ##go to this docker site and copy paste the docker installation
+  https://docs.docker.com/engine/install/ubuntu/
+##complete step 1 and 2
+  1. Set up Docker's apt repository.
+  2. Install the Docker packages.
+  ##verify the docker instalaltion 
+  root@gopalvm:~# docker --version
+Docker version 28.3.2, build 578ccf6
+root@gopalvm:~#
+###lets add docker deamon to be operated by jenkins user
+    root@gopalvm:~# ls -la /var/lib/jenkins
+total 168
+drwxr-xr-x 19 jenkins jenkins  4096 Jul 17 08:54 .
+drwxr-xr-x 50 root    root     4096 Jul 17 10:22 ..
+drwxr-xr-x  3 jenkins jenkins  4096 Jul 15 09:16 .cache
+drwxr-xr-x  3 jenkins jenkins  4096 Jul 15 12:02 .config
+##lets add this jenkins user to the docker deamon
+   usermod -aG docker jenkins
+  ######once added we need to restart the jenkins server 
+  ##finally setup the jenkins docker pipeline plugins 
+  1. Docker
+  2. Docker Pipeline
+  ###finally restar tthe jenkins server
+  systemctl restart jenkins
+  
