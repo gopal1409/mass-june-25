@@ -24,4 +24,23 @@ drwxr-xr-x  3 jenkins jenkins  4096 Jul 15 12:02 .config
   2. Docker Pipeline
   ###finally restar tthe jenkins server
   systemctl restart jenkins
+#before we build the pipeline we need to have an dockerfile with instruction to convert your app into an contianer based image. 
+go back to your github project for spring boot 
+add a file the name of the file should be dockerfile
+#####################
+#inside the docker file we will put instruction 
+#first insitruction
+FROM maven as MAVEN_BUILD
+#we are geeting an maven image to build my maven application
+COPY ./ ./
+#we will copy the source tree and pom.xml to our maven container
+#package our application code
+RUN mvn clean package 
+#lets set the start command to execute the JAR file
+##second stage of our build will use openjdk
+FROM openjdk
+##we will copy only the artifact file from the first state and discard the rest
+COPY --from=MAVEN_BUILD /target/*.jar /web.jar
+#we will use an entrypoint to execute my jar file
+ENTRYPOINT ["java","-jar","/web.jar"]
   
