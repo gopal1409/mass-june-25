@@ -1,0 +1,4 @@
+  139  cat /root/.ssh/id_rsa.pub
+##once it display the public key copy the same and paste it in the authirzed key 
+####save the file ctr x press y and enter 
+  140  nano /root/.ssh/authorized_keys
