@@ -3,7 +3,7 @@ sudo -i
 apt install ansible
 ##login to jenkins and install the ansible plugin
 ##lets clone the repo 
-133  git clone git@github.com:gopal1409/Erricson-Nov_ansible_manifest.git
+133  git clone https://github.com/gopal1409/Erricson-Nov_ansible_manifest.git
   134  cd Erricson-Nov_ansible_manifest/
   135  ls
   136  nano dev.inv
@@ -12,6 +12,7 @@ apt install ansible
 #####check the dns name of your server
 cat dev.inv
 #######next you need to push to code to a new repo
+rm -rf .git
 git init
 git add .
 git commit -m "ansible playbook"
