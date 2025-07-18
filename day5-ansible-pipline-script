@@ -4,8 +4,13 @@ pipeline {
         stage ('ansible code') {
             steps {
                 // get the ansible code from github
-                git credentialsId: 'gitkey', url: 'git@github.com:gopal1409/mass-ansibleplay25.git'
+                git credentialsId: 'gitkey', url: 'git@github.com:gopal1409/Erricson-Nov_ansible_manifest.git'
             }
+        }
+        stage('run ansible code') {
+            steps {
+                ansiblePlaybook credentialsId: 'gitkey', disableHostKeyChecking: true, inventory: 'dev.inv', playbook: 'nginx-play.yml', vaultTmpPath: ''
+        }
         }
     }
 }
