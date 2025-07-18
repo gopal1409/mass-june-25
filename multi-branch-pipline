@@ -1,0 +1,54 @@
+root@gopalvm:~# mkdir multi
+root@gopalvm:~# cd multi/
+root@gopalvm:~/multi# touch Jenkinsfile
+root@gopalvm:~/multi# nano Jenkinsfile
+####inside this get the first ci pipeline script and save it 
+root@gopalvm:~/multi# git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint:   git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name>
+Initialized empty Git repository in /root/multi/.git/
+root@gopalvm:~/multi# git add .
+root@gopalvm:~/multi# git commit -m "executing ci pipeline for artifact"
+[master (root-commit) bc04244] executing ci pipeline for artifact
+ 1 file changed, 44 insertions(+)
+ create mode 100644 Jenkinsfile
+root@gopalvm:~/multi# git status
+On branch master
+nothing to commit, working tree clean
+root@gopalvm:~/multi# git log
+commit bc04244fe936c920c4c9a766cfa3a6cf9152027b (HEAD -> master)
+Author: gopal <gopal1409@gmail.com>
+Date:   Fri Jul 18 11:44:18 2025 +0000
+
+    executing ci pipeline for artifact
+root@gopalvm:~/multi#
+
+####lets start with docker branch 
+  175  git branch docker
+  176  git checkout docker
+  177  nano Jenkinsfile
+  ##first delete all the content then copy the content from docker pipeline and paste it inside the Jenkinsfile
+ 179  git add .
+  180  git commit -m "docker pipeline script"
+  181  git branch
+#####lets finally create the ansible branch
+root@gopalvm:~/multi# git branch ansible
+ 189  git checkout ansible
+ ######delete every thing and copy the ansible pipeline script
+  190  nano Jenkinsfile
+  191  git add .
+  192  git commit -m "ansible pipeline"
+  ##################once completed create a new repo in github and upload the code
+  git push --all
+  ####this will show all the three branch has been uploaded
+
+
+
